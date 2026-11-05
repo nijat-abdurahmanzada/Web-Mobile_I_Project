@@ -21,11 +21,16 @@ async function getMovies() {
 const movies = await getMovies();
 
 const movieList = document.querySelector(".movie-list");
+const search = document.querySelector("#search");
+const modalContainer = document.getElementById("modal_container");
+console.log(modalContainer);
+const closeBtn = document.getElementById("close");
 
 // Creating the cards
 function createCard(movie) {
   const card = document.createElement("div");
   card.classList.add("card");
+  card.dataset.id = `${movie.id}`;
 
   const cardImg = document.createElement("div");
   cardImg.classList.add("card-img");
@@ -57,4 +62,50 @@ function createCard(movie) {
   movieList.append(card);
 }
 
-movies.forEach((movie) => createCard(movie));
+function renderCard(movies) {
+  // movieList.replaceChildren();
+  movies.forEach((movie) => createCard(movie));
+}
+
+// Search button
+function searchCard(input) {
+  return movies.filter((movie) =>
+    movie.title.toLowerCase().includes(input.toLowerCase()),
+  );
+}
+
+function openModal(movie) {
+  const modalImage = document.querySelector("#modal-image");
+  const modalTitle = document.querySelector("#modal-title");
+  const modalTotal = document.querySelector("#modal-total");
+  
+  modalImage.src = `${imageUrl}${movie["poster_path"]}`;
+  modalTitle.textContent = `${movie.title}`;
+  modalContainer.classList.add("active");
+}
+
+function closeModal() {
+  modalContainer.classList.remove("active");
+}
+
+search.addEventListener("input", (e) => {
+  let searchedMovies = searchCard(e.target.value);
+  renderCard(searchedMovies);
+});
+
+movieList.addEventListener("click", (e) => {
+  const selectedCard = e.target.closest(".card");
+
+  if (!selectedCard) return;
+
+  const id = selectedCard.dataset.id;
+
+  const movie = movies.find((movie) => movie.id == id);
+  openModal(movie);
+});
+
+closeBtn.addEventListener("click", (e) => {
+  closeModal();
+});
+
+renderCard(movies);

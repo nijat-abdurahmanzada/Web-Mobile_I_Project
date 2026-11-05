@@ -28,6 +28,33 @@
   --seat-inspected: #ff9f1c;
   --seat-in-cart: #2878d0;
   --seat-unavailable: #737b8c;
+
+  /* Modal */
+  --modal-bg: #151d35;
+  --modal-overlay: rgba(5, 9, 22, 0.88);
+  --modal-header-bg: #1b2743;
+
+  /* Border & Divider */
+  --modal-border: #303d5c;
+  --modal-divider: #2a3652;
+
+  /* Text */
+  --modal-text: var(--text-primary);
+  --modal-text-muted: var(--text-secondary);
+
+  /* Accent */
+  --modal-accent: var(--accent-gold);
+  --modal-accent-hover: var(--accent-hover);
+  --modal-accent-soft: rgba(217, 166, 46, 0.12);
+
+  /* Input */
+  --modal-input-bg: #0f172b;
+  --modal-input-border: #34415e;
+  --modal-input-focus: var(--accent-gold);
+
+  /* Close button */
+  --modal-close-bg: #26324e;
+  --modal-close-hover: #354361;
 }
 
 body {
@@ -146,6 +173,7 @@ main {
   margin-top: 50px;
 }
 
+/* Card */
 .card {
   width: 300px;
   height: 400px;
@@ -186,4 +214,121 @@ main {
 .card-body h5 {
   font-size: 20px;
   text-align: center;
+}
+
+/* Modal */
+.modal-container {
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.809);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  visibility: hidden;
+}
+
+.active {
+  pointer-events: auto;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+}
+
+.modal {
+  width: 70%;
+  max-height: 85vh;
+  display: flex;
+  border-radius: 10px;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+  overflow-y: auto;
+}
+
+.venue-container {
+  width: 100%;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.venue {
+  width: 70%;
+  color: var(--text-primary);
+  background-color: var(--modal-bg);
+}
+
+.cinema-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 40%;
+  height: 100%;
+  color: var(--text-primary);
+  background-color: var(--modal-header-bg);
+  border-left: 1px solid var(--modal-divider);
+  gap: 20px;
+  position: relative;
+}
+
+.image-container {
+  width: 70%;
+  height: 60%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.description-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+  max-height: 80%;
+}
+
+.cinema-description #close {
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  color: var(--text-primary);
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+}
+
+#add_card {
+  font-weight: 700;
+  background-color: var(--accent-gold);
+  color: var(--modal-input-bg);
+  width: 20%;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 30px;
+  border: none;
+
+  &:hover {
+    background-color: var(--accent-hover);
+  }
 }
