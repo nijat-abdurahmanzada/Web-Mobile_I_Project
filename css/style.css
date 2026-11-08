@@ -171,12 +171,11 @@ h3,
   background: var(--accent-hover);
 }
 
-/* =========================
-   MAIN / MOVIE CARDS
-========================= */
+/* MOVIE CARDS */
 
 main {
   width: min(1200px, 100%);
+  min-height: 69.5dvh;
   margin: 42px auto 70px;
   padding: 0 24px;
 }
@@ -273,9 +272,7 @@ main {
   text-align: center;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 .site-footer {
   padding: 22px 15px;
@@ -285,9 +282,7 @@ main {
   text-align: center;
 }
 
-/* =========================
-   BOOKING DIALOG
-========================= */
+/* BOOKING DIALOG */
 
 .booking-dialog {
   position: fixed;
@@ -434,9 +429,7 @@ main {
   background: var(--accent-hover);
 }
 
-/* =========================
-   SEAT MAP / ZOOM
-========================= */
+/* SEAT MAP / ZOOM */
 
 .seat-toolbar {
   width: 100%;
@@ -616,9 +609,7 @@ main {
   border-radius: 3px;
 }
 
-/* =========================
-   CART BUTTON / DIALOG
-========================= */
+/* CART BUTTON / DIALOG */
 
 .in-cart {
   position: fixed;
@@ -794,9 +785,7 @@ main {
   font-size: 16px;
 }
 
-/* =========================
-   TABLET
-========================= */
+/* TABLET */
 
 @media (max-width: 900px) {
   .nav-header {
@@ -850,9 +839,7 @@ main {
   }
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 650px) {
   .nav-header {
